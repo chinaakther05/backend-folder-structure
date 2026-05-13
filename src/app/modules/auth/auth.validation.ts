@@ -1,27 +1,27 @@
 import { z } from "zod";
 
-// REGISTER validation
+// registervalidation
 export const registerSchema = z.object({
   name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email"),
+  email: z.string(),
   password: z.string().min(6, "Password must be 6 characters"),
 });
 
-// LOGIN validation
+// login validation
 export const loginSchema = z.object({
-  email: z.string().email("Invalid email"),
+  email: z.string(),
   password: z.string().min(6),
 });
 
-// CHANGE PASSWORD validation
+// change password validation
 export const changePasswordSchema = z.object({
-  email: z.string().email(),
+  email: z.string(),
   oldPassword: z.string(),
   newPassword: z.string().min(6),
 });
 
-// FORGET PASSWORD validation
+// forget password validation
 export const forgetPasswordSchema = z.object({
-  email: z.string().email(),
+  email: z.string(),
   newPassword: z.string().min(6),
 });
